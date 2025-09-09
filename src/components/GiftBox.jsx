@@ -148,7 +148,7 @@ const GiftBox = () => {
                   mozallowfullscreen="true"
                   webkitallowfullscreen="true"
                   allow="autoplay; fullscreen; xr-spatial-tracking"
-                  src="https://sketchfab.com/models/0ffbf12f08764e83aaa154cb5e7d9710/embed?autoplay=1&preload=1"
+                  src="https://sketchfab.com/models/0ffbf12f08764e83aaa154cb5e7d9710/embed?preload=1"
                   className="w-full h-full rounded-lg"
                   onLoad={() => setModelLoaded(true)}
                   style={{ aspectRatio: "16/9" }}
