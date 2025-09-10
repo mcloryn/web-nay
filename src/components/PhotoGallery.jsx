@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, ChevronLeft, ChevronRight, Heart, Folder, Grid, Clock, MapPin, Home, User, Mail, Camera } from 'lucide-react'
+import { X, ChevronLeft, ChevronRight, Heart, Folder, Clock, MapPin, Camera, ArrowLeft } from 'lucide-react'
 
 const PhotoGallery = ({ setShowGallery }) => {
   const [currentView, setCurrentView] = useState('moments') // 'moments' or 'grid' or 'carousel'
@@ -472,41 +472,32 @@ const PhotoGallery = ({ setShowGallery }) => {
     </div>
   )
 
-  // Tampilan Carousel untuk melihat foto satu per satu
 // Tampilan Carousel untuk melihat foto satu per satu dengan bingkai
 const CarouselView = () => (
   <div className="relative w-full h-full flex items-center justify-center">
     <AnimatePresence mode="wait">
       <motion.div
         key={currentIndex}
-        initial={{ opacity: 0, x: 100 }}
-        animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, x: -100 }}
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.9 }}
         transition={{ duration: 0.3 }}
-        className="flex justify-center items-center h-full"
+        className="flex justify-center items-center h-full w-full max-w-4xl mx-auto"
       >
-        {/* Container bingkai dengan efek dekoratif */}
-        <div className="relative p-6 bg-gradient-to-br from-pink-50 to-pink-100 rounded-2xl shadow-2xl">
-          {/* Bingkai luar dengan pola dekoratif */}
-          <div className="absolute inset-0 border-4 border-pink-300/50 rounded-xl pointer-events-none"></div>
+        {/* Container utama dengan padding lebih kecil */}
+        <div className="relative p-2 bg-gradient-to-br from-pink-50 to-pink-100 rounded-xl shadow-xl">
+          {/* Bingkai luar dengan efek dekoratif tipis */}
+          <div className="absolute inset-0 border-2 border-pink-300/40 rounded-lg pointer-events-none"></div>
           
-          {/* Bingkai dalam dengan pola dekoratif */}
-          <div className="relative p-4 bg-gradient-to-b from-pink-200 to-white border-8 border-white rounded-lg shadow-inner">
-            {/* Efek sudut dekoratif */}
-            <div className="absolute -top-2 -left-2 w-4 h-4 rounded-full bg-pink-400"></div>
-            <div className="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-pink-400"></div>
-            <div className="absolute -bottom-2 -left-2 w-4 h-4 rounded-full bg-pink-400"></div>
-            <div className="absolute -bottom-2 -right-2 w-4 h-4 rounded-full bg-pink-400"></div>
-            
-            {/* Gambar dengan bingkai dalam */}
-            <div className="border-4 border-pink-100 rounded-sm overflow-hidden shadow-md">
-              <img 
-                src={selectedMoment.photos[currentIndex].src} 
-                alt={selectedMoment.photos[currentIndex].alt}
-                className="max-h-[70vh] max-w-full object-contain"
-                style={{ aspectRatio: '3/4' }}
-              />
-            </div>
+          {/* Container untuk foto dengan bingkai dalam */}
+          <div className="relative p-1 bg-white border-4 border-pink-100 rounded-md shadow-inner overflow-hidden">
+            {/* Gambar dengan ukuran maksimal */}
+            <img 
+              src={selectedMoment.photos[currentIndex].src} 
+              alt={selectedMoment.photos[currentIndex].alt}
+              className="max-h-[80vh] max-w-full object-contain"
+              style={{ aspectRatio: '3/4' }}
+            />
           </div>
         </div>
       </motion.div>
@@ -549,11 +540,10 @@ const CarouselView = () => (
       onClick={() => setCurrentView('grid')}
       className="absolute top-4 left-4 text-white p-2 rounded-full bg-pink-500/80 hover:bg-pink-600/80 backdrop-blur-sm transition-all duration-300 z-20"
     >
-      <ChevronLeft className="w-5 h-5 mr-1" />
+      < ArrowLeft className="w-5 h-5 mr-1" />
     </button>
   </div>
-)
-  // Header Component
+)  // Header Component
 const Header = () => (
   <motion.header 
     initial={{ opacity: 0, y: -20 }}
@@ -567,7 +557,7 @@ const Header = () => (
           className="text-2xl font-bold" 
           style={{ fontFamily: '"Dancing Script", cursive' }}
         >
-          Galeri Kenangan
+          Photo Gallery
         </h1>
       </div>
     </div>
@@ -621,8 +611,8 @@ const Header = () => (
             >
               <Heart className="w-10 h-10 text-pink-600 mx-auto" fill="currentColor" />
             </motion.div>
-            <h2 className="text-3xl font-display text-pink-800 mb-2" style={{ fontFamily: '"Dancing Script", cursive' }}>Album Kenangan Kita</h2>
-            <p className="text-pink-700">Kumpulan momen spesial yang kita abadikan bersama</p>
+            <h2 className="text-3xl font-display text-pink-800 mb-2" style={{ fontFamily: '"Dancing Script", cursive' }}>Our Memory Album</h2>
+            <p className="text-pink-700">A collection of special moments we’ve captured together</p>
           </motion.div>
 
           {/* Breadcrumb */}
