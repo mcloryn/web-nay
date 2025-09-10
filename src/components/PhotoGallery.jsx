@@ -437,7 +437,7 @@ const PhotoGallery = ({ setShowGallery }) => {
           }}
           className="text-pink-600 hover:text-pink-800 transition-colors"
         >
-          <X className="w-5 h-5" />
+          <X className="w-4 h-4" />
         </button>
       </motion.div>
 
@@ -505,16 +505,16 @@ const CarouselView = () => (
     
     <button 
       onClick={goToPrevious}
-      className="absolute left-2 top-1/2 -translate-y-1/2 text-white p-3 rounded-full bg-pink-500/80 hover:bg-pink-600/80 backdrop-blur-sm transition-all duration-300 z-20"
+      className="absolute left-2 top-1/2 -translate-y-1/2 text-white p-2 rounded-full bg-pink-500/80 hover:bg-pink-600/80 backdrop-blur-sm transition-all duration-300 z-20"
     >
-      <ChevronLeft className="w-6 h-6" />
+      <ChevronLeft className="w-4 h-4" />
     </button>
     
     <button 
       onClick={goToNext}
-      className="absolute right-2 top-1/2 -translate-y-1/2 text-white p-3 rounded-full bg-pink-500/80 hover:bg-pink-600/80 backdrop-blur-sm transition-all duration-300 z-20"
+      className="absolute right-2 top-1/2 -translate-y-1/2 text-white p-2 rounded-full bg-pink-500/80 hover:bg-pink-600/80 backdrop-blur-sm transition-all duration-300 z-20"
     >
-      <ChevronRight className="w-6 h-6" />
+      <ChevronRight className="w-4 h-4" />
     </button>
     
     <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
@@ -540,7 +540,7 @@ const CarouselView = () => (
       onClick={() => setCurrentView('grid')}
       className="absolute top-4 left-4 text-white p-2 rounded-full bg-pink-500/80 hover:bg-pink-600/80 backdrop-blur-sm transition-all duration-300 z-20"
     >
-      < ArrowLeft className="w-5 h-5 mr-1" />
+      < ArrowLeft className="w-4 h-4" />
     </button>
   </div>
 )  // Header Component
@@ -591,7 +591,7 @@ const Header = () => (
         className="absolute top-4 right-4 text-pink-700 p-2 rounded-full bg-white/90 hover:bg-white z-50 transition-all duration-300 shadow-md"
         onClick={() => setShowGallery(false)}
       >
-        <X className="w-6 h-6" />
+        <X className="w-4 h-4" />
       </button>
       
       <div className="relative max-w-6xl w-full flex flex-col min-h-screen">
